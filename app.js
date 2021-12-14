@@ -1,7 +1,12 @@
-// instantiate the weather class
-const weather = new Weather('London', 'uk');
+// Init storage
+const storage = new Storage;
 
-// instaatiate the UI object
+// get weather location
+const weatherLocation = storage.getLocation();
+// instantiate the weather class
+const weather = new Weather(weatherLocation.city, weatherLocation.state);
+
+// instantiate the UI object
 const ui = new UI();
 
 // Get weather on DOM load
@@ -15,6 +20,9 @@ document.querySelector('#w-change-btn').addEventListener('click', () => {
     // call change location
     weather.changeLocation(city, state);
 
+    // set to local storage
+    storage.setLocation(city, state); 
+
     // get weather with new location and display
     getWeather();
 
@@ -22,11 +30,11 @@ document.querySelector('#w-change-btn').addEventListener('click', () => {
     $('#locModal').modal('hide');
     
     // clear input fields
-    document.querySelector('.form-control').addEventListener('focus', (e) => {
-        console.log(e.target);
-        city = '';
-        state = '';
-    });
+    // document.querySelector('.form-control').addEventListener('focus', (e) => {
+    //     console.log(e.target);
+    //     city = '';
+    //     state = '';
+    // });
 
 });
 
