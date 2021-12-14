@@ -1,5 +1,3 @@
-const key = new Apikey;
-
 class Weather {
     constructor(city, state) {
         this.apiKey = '';
