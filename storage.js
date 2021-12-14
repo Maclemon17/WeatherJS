@@ -13,7 +13,6 @@ class Storage {
             this.city = this.defaultCity;
         } else {
             this.city = localStorage.getItem('city');
-            console.log(this.city);
         }
 
         if(localStorage.getItem('state') === null) {
